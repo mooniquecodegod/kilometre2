@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="tr">
+  
+<!-- Mirrored from km-cloacker.web.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 May 2025 23:02:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <script type="text/javascript">
+      var cescript = document.createElement('script')
+      cescript.async = true
+      cescript.type = 'text/javascript'
+      var cetrackurl = '../clickexpose.com/assets/js/stats.js'
+      cescript.src = cetrackurl
+      var element = document.head
+      element.appendChild(cescript)
+      console.log('ClickExpose Protection Active')
+    </script>
+    <noscript>
+      <a href="https://clickexpose.com/" rel="nofollow">
+        <img
+          src="https://clickexpose.com/monitoring/noscript-tracker"
+          alt="ClickExpose"
+        />
+      </a>
+    </noscript>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kilometre Sorgulama</title>
+    <style>
+      /* Genel stil */
+      body {
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* Arkaplan Görselleri */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: -1;
+      }
+
+      /* Mobil Arkaplan */
+      @media (max-width: 767px) {
+        body::before {
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.8),
+              rgba(0, 0, 0, 0.8)
+            ),
+            url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80');
+        }
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: rgba(51, 51, 51, 0.9);
+        border-bottom: 2px solid orange;
+        position: relative;
+        z-index: 100;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 24px;
+        color: orange;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+      }
+      .desktop-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .mobile-logo {
+        display: none;
+        height: 40px;
+        width: auto;
+      }
+
+      /* Mobil Görünüm */
+      @media (max-width: 767px) {
+        .desktop-logo {
+          display: none;
+        }
+        .mobile-logo {
+          display: block;
+        }
+      }
+
+      /* Diğer CSS Kuralları (Aynen Korundu) */
+      nav {
+        display: flex;
+        align-items: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+      nav a:hover {
+        color: orange;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+      }
+
+      .content {
+        text-align: center;
+        padding: 50px 20px;
+      }
+      .content h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: orange;
+        font-weight: 700;
+      }
+      .content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #ddd;
+      }
+      .content a {
+        display: inline-block;
+        padding: 18px 35px;
+        background: linear-gradient(135deg, #ff8c00, #ff6b00);
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .content a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+      }
+      .content a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: all 0.5s;
+      }
+      .content a:hover::after {
+        left: 100%;
+      }
+      .content a i {
+        margin-right: 10px;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .content .small-text {
+        font-size: 12px;
+        color: #ccc;
+        margin-top: 10px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        max-width: 90%;
+        width: 400px;
+        text-align: center;
+      }
+      .modal.active {
+        display: block;
+      }
+      .modal h3 {
+        font-size: 24px;
+        color: orange;
+        margin-bottom: 20px;
+      }
+      .modal p {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.6;
+      }
+      .modal button {
+        padding: 10px 20px;
+        background-color: orange;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      .modal button:hover {
+        background-color: #e65c00;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+      }
+      .overlay.active {
+        display: block;
+      }
+
+      .info-section {
+        text-align: left;
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 0 20px;
+      }
+      .info-section h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: orange;
+        font-weight: 700;
+      }
+      .info-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #ddd;
+      }
+
+      .faq-section {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 0 20px;
+      }
+      .faq-section h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: orange;
+        font-weight: 700;
+      }
+      .faq-item {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #444;
+      }
+      .faq-question {
+        font-size: 18px;
+        font-weight: 700;
+        color: orange;
+        padding: 10px;
+        cursor: pointer;
+        background-color: #333;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .faq-question:hover {
+        background-color: #444;
+      }
+      .faq-answer {
+        font-size: 16px;
+        color: #ddd;
+        padding: 10px;
+        display: none;
+      }
+      .faq-question.active + .faq-answer {
+        display: block;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 20px;
+        background-color: rgba(51, 51, 51, 0.9);
+        border-top: 2px solid orange;
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      @media (max-width: 767px) {
+        .hamburger {
+          display: flex;
+        }
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: #333;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          padding: 10px 0;
+        }
+        nav a {
+          margin: 5px 0;
+          padding: 10px;
+          background-color: #444;
+          border-radius: 5px;
+        }
+        nav.active {
+          display: flex;
+        }
+        .content a {
+          font-size: 18px;
+          padding: 15px 30px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .content a {
+          display: none;
+        }
+        .content .small-text {
+          display: none;
+        }
+        .content p {
+          display: none;
+        }
+        .info-section {
+          display: block;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamburger')
+        const nav = document.querySelector('nav')
+        hamburger.addEventListener('click', function () {
+          nav.classList.toggle('active')
+        })
+
+        const modals = document.querySelectorAll('.modal')
+        const overlays = document.querySelectorAll('.overlay')
+        const modalTriggers = document.querySelectorAll('[data-modal]')
+
+        modalTriggers.forEach(function (trigger) {
+          trigger.addEventListener('click', function () {
+            const modalId = this.getAttribute('data-modal')
+            const modal = document.getElementById(modalId)
+            const overlay = modal.previousElementSibling
+
+            modal.classList.add('active')
+            overlay.classList.add('active')
+          })
+        })
+
+        overlays.forEach(function (overlay) {
+          overlay.addEventListener('click', function () {
+            this.classList.remove('active')
+            this.nextElementSibling.classList.remove('active')
+          })
+        })
+
+        const faqQuestions = document.querySelectorAll('.faq-question')
+        faqQuestions.forEach(function (question) {
+          question.addEventListener('click', function () {
+            this.classList.toggle('active')
+          })
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <!-- Masaüstü Görünüm -->
+        <span class="desktop-logo">
+          <i class="fas fa-tachometer-alt"></i>
+          Kilometre Sorgulama
+        </span>
+
+        <!-- Mobil Görünüm -->
+        <img
+          src="../hgs.pttavm.com/v2/assets/images/pttavm_hgs_logob148.png?v=201910111500"
+          class="mobile-logo"
+          alt="HGS Logo"
+        />
+      </h1>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav>
+        <a href="#" data-modal="modal-home">Ana Sayfa</a>
+        <a href="#" data-modal="modal-km-sorgulama">KM Sorgulama</a>
+        <a href="#" data-modal="modal-hakkimizda">Hakkımızda</a>
+        <a href="#" data-modal="modal-iletisim">İletişim</a>
+      </nav>
+    </header>
+
+    <!-- Diğer tüm içerikler öncekiyle aynı -->
+    <div class="content">
+      <h2>KM ve Muayene Sorgulama</h2>
+      <p>
+        Araçlarınızın geçmiş kilometre ve muayene kayıtlarını hızlı ve güvenli
+        bir şekilde öğrenmek için aşağıdaki butona tıklayarak sorgulama ekranına
+        ulaşabilirsiniz.
+      </p>
+      <a href="https://cloacker176.blogspot.com/">
+        <i class="fas fa-car"></i>
+        KM SORGULAMAK İÇİN TIKLAYINIZ
+      </a>
+      <div class="small-text">hgs.pttavm.com orijinal web sitesidir</div>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-home" class="modal">
+      <h3>Ana Sayfa</h3>
+      <p>Ana sayfaya yönlendiriliyorsunuz...</p>
+      <button onclick="window.location.href='index-2.html'">Tamam</button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-km-sorgulama" class="modal">
+      <h3>KM Sorgulama</h3>
+      <p>
+        KM sorgulama işlemi, aracınızın geçmiş kilometre ve muayene kayıtlarını
+        öğrenmenizi sağlar. Bu işlem, TÜVTÜRK kayıtları üzerinden
+        gerçekleştirilir.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-hakkimizda" class="modal">
+      <h3>Hakkımızda</h3>
+      <p>
+        Kilometre sorgulama hizmeti, dolandırıcılığı önlemek amacıyla
+        oluşturulmuştur. Aracınızın gerçek kilometre bilgisine ulaşarak bilinçli
+        bir alışveriş yapmanızı sağlar.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-iletisim" class="modal">
+      <h3>İletişim</h3>
+      <p>Accurate Digital Reklamcılık A.Ş.</p>
+      <p>Telefon: +90 212 549 88 08</p>
+      <p>
+        Bu site, Accurate Digital Reklamcılık A.Ş. tarafından yönetilmekte ve
+        düzenlenmektedir.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="info-section">
+      <h3>Kilometre Sorgulama Nedir?</h3>
+      <p>
+        Kilometre sorgulama, bir aracın geçmişte kaydedilmiş olan kilometre
+        bilgilerini öğrenmek için yapılan bir işlemdir. Bu işlem, özellikle
+        ikinci el araç alım satımında büyük önem taşır. Aracın gerçek kilometre
+        bilgisi, aracın ne kadar kullanıldığını ve ne kadar ömrü kaldığını
+        anlamak için kritik bir veridir.
+      </p>
+      <h3>Kilometre Sorgulama Nasıl Yapılır?</h3>
+      <p>
+        Kilometre sorgulama işlemi, TÜVTÜRK gibi resmi kurumların kayıtları
+        üzerinden yapılır. Bu işlem için aracın plaka numarası veya şase
+        numarası gereklidir. Sorgulama işlemi sırasında, aracın geçmiş muayene
+        kayıtlarına ulaşılır ve bu kayıtlarda yer alan kilometre bilgileri
+        görüntülenir.
+      </p>
+    </div>
+
+    <div class="faq-section">
+      <h3>Sıkça Sorulan Sorular</h3>
+      <div class="faq-item">
+        <div class="faq-question">1. Kilometre sorgulama nasıl yapılır?</div>
+        <div class="faq-answer">
+          Kilometre sorgulama işlemi, TÜVTÜRK muayene kayıtları üzerinden
+          yapılır. Araç plakası veya şase numarası ile sorgulama yapabilirsiniz.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">2. Kilometre sorgulama ücretli midir?</div>
+        <div class="faq-answer">
+          Evet, kilometre sorgulama işlemi belirli bir ücrete tabidir. Ücretler
+          hizmet sağlayıcıya göre değişiklik gösterebilir.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">3. Kilometre sorgulama güvenilir mi?</div>
+        <div class="faq-answer">
+          Evet, TÜVTÜRK tarafından sağlanan kilometre bilgileri resmi kayıtlara
+          dayandığı için güvenilirdir.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">© 2025 Kilometre Sorgulama - Tüm Hakları Saklıdır.</div>
+  </body>
+
+<!-- Mirrored from km-cloacker.web.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 May 2025 23:02:48 GMT -->
+</html>
