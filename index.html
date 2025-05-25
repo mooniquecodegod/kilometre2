@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kilometre Sorgulama</title>
+    <style>
+      /* (CSS kodlarınız olduğu gibi kalabilir) */
+    </style>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamburger')
+        const nav = document.querySelector('nav')
+        hamburger.addEventListener('click', function () {
+          nav.classList.toggle('active')
+        })
+
+        const modals = document.querySelectorAll('.modal')
+        const overlays = document.querySelectorAll('.overlay')
+        const modalTriggers = document.querySelectorAll('[data-modal]')
+
+        modalTriggers.forEach(function (trigger) {
+          trigger.addEventListener('click', function () {
+            const modalId = this.getAttribute('data-modal')
+            const modal = document.getElementById(modalId)
+            const overlay = modal.previousElementSibling
+
+            modal.classList.add('active')
+            overlay.classList.add('active')
+          })
+        })
+
+        overlays.forEach(function (overlay) {
+          overlay.addEventListener('click', function () {
+            this.classList.remove('active')
+            this.nextElementSibling.classList.remove('active')
+          })
+        })
+
+        const faqQuestions = document.querySelectorAll('.faq-question')
+        faqQuestions.forEach(function (question) {
+          question.addEventListener('click', function () {
+            this.classList.toggle('active')
+          })
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <!-- Masaüstü Görünüm -->
+        <span class="desktop-logo">
+          <i class="fas fa-tachometer-alt"></i>
+          Kilometre Sorgulama
+        </span>
+
+        <!-- Mobil Görünüm -->
+        <img
+          src="#"
+          class="mobile-logo"
+          alt="HGS Logo"
+        />
+      </h1>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav>
+        <a href="#" data-modal="modal-home">Ana Sayfa</a>
+        <a href="#" data-modal="modal-km-sorgulama">Kilometre Sorgulama</a>
+        <a href="#" data-modal="modal-hakkimizda">Hakkımızda</a>
+        <a href="#" data-modal="modal-iletisim">İletişim</a>
+      </nav>
+    </header>
+
+    <div class="content">
+      <h2>Kilometre ve Muayene Sorgulama</h2>
+      <p>
+        Araçlarınıza ait geçmiş kilometre ve muayene kayıtlarını hızlı ve güvenilir şekilde öğrenmek için aşağıdaki butona tıklayarak sorgulama ekranına erişebilirsiniz.
+      </p>
+      <a href="https://cinarinyonlendirmesi.blogspot.com/2025/05/wsdfasfbbb.html">
+        <i class="fas fa-car"></i>
+        Kilometre Sorgulama İşlemi İçin Tıklayınız
+      </a>
+      <div class="small-text">hgs.pttavm.com, resmi web sitesidir.</div>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-home" class="modal">
+      <h3>Ana Sayfa</h3>
+      <p>Ana sayfaya yönlendiriliyorsunuz...</p>
+      <button onclick="window.location.href='index-2.html'">Tamam</button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-km-sorgulama" class="modal">
+      <h3>Kilometre Sorgulama</h3>
+      <p>
+        Kilometre sorgulama işlemi, aracınızın geçmiş kilometre ve muayene kayıtlarına erişmenizi sağlar. Bu işlem, TÜVTÜRK kayıtları üzerinden gerçekleştirilmekte olup, aracınızın gerçek kullanım verilerini sunmaktadır.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-hakkimizda" class="modal">
+      <h3>Hakkımızda</h3>
+      <p>
+        Kilometre sorgulama hizmetimiz, araç alım-satım işlemlerinde şeffaflığı ve güvenliği sağlamak amacıyla geliştirilmiştir. Aracınızın gerçek kilometre bilgisine ulaşarak bilinçli ve sağlıklı kararlar almanıza olanak tanımaktadır.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="overlay"></div>
+    <div id="modal-iletisim" class="modal">
+      <h3>İletişim</h3>
+      <p>Accurate Digital Reklamcılık A.Ş.</p>
+      <p>Telefon: +90 212 549 88 08</p>
+      <p>
+        Bu web sitesi, Accurate Digital Reklamcılık A.Ş. tarafından yönetilmekte ve denetlenmektedir.
+      </p>
+      <button
+        onclick="document.querySelector('.overlay').classList.remove('active'); this.parentElement.classList.remove('active')"
+      >
+        Kapat
+      </button>
+    </div>
+
+    <div class="info-section">
+      <h3>Kilometre Sorgulama Nedir?</h3>
+      <p>
+        Kilometre sorgulama, bir aracın geçmişte kaydedilmiş olan kilometre bilgilerini öğrenmeye yönelik resmi bir işlemdir. Özellikle ikinci el araç alım-satımında büyük önem taşımaktadır. Aracın gerçek kilometre bilgisi, aracın kullanım durumu ve kalan ömrü hakkında önemli veriler sağlamaktadır.
+      </p>
+      <h3>Kilometre Sorgulama İşlemi Nasıl Gerçekleştirilir?</h3>
+      <p>
+        Kilometre sorgulama işlemi, TÜVTÜRK gibi resmi kurumların kayıtları üzerinden yürütülür. Bu işlem için aracın plaka numarası veya şasi numarası gerekmektedir. Sorgulama sırasında aracın geçmiş muayene kayıtlarına erişilir ve bu kayıtlar içindeki kilometre bilgileri sunulur.
+      </p>
+    </div>
+
+    <div class="faq-section">
+      <h3>Sıkça Sorulan Sorular</h3>
+      <div class="faq-item">
+        <div class="faq-question">1. Kilometre sorgulama işlemi nasıl yapılmaktadır?</div>
+        <div class="faq-answer">
+          Kilometre sorgulama işlemi, TÜVTÜRK muayene kayıtları baz alınarak gerçekleştirilir. Aracın plaka veya şasi numarası ile sorgulama yapılabilmektedir.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">2. Kilometre sorgulama hizmeti ücretli midir?</div>
+        <div class="faq-answer">
+          Evet, kilometre sorgulama hizmeti belirli bir ücret karşılığında sunulmaktadır. Ücretler, hizmet sağlayıcıya göre değişiklik gösterebilir.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">3. Kilometre sorgulama sonuçları ne kadar güvenilirdir?</div>
+        <div class="faq-answer">
+          Kilometre bilgileri, TÜVTÜRK tarafından sağlanan resmi kayıtlar baz alınarak sunulduğundan yüksek derecede güvenilirdir.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">© 2025 Kilometre Sorgulama - Tüm Hakları Saklıdır.</div>
+  </body>
+
+</html>
